@@ -3,7 +3,7 @@
 #include <string.h>
 #include "libft.h"
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	char	*buf = NULL;
 	char	*ft_buf = NULL;
@@ -19,7 +19,7 @@ int		main(int argc, char **argv)
 	len = atoi(argv[3]);
 	memset(buf, c, len);
 	ft_memset(ft_buf, c, len);
-	printf("buf   :%s\n", buf);
-	printf("ft_buf:%s\n", ft_buf);
+	printf("lib:%s\n", buf);
+	printf("ft_:%s\n", ft_buf);
 	return (0);
 }
