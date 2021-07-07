@@ -8,7 +8,7 @@ $(NAME): $(OBJS)
 	ar rcs $@ $<
 
 %.o: %.c
-	$(CC) $(CLFAG) -o $@ -c $<
+	$(CC) -o $@ -c $(CFLAG) $<
 
 all:	$(NAME)
 

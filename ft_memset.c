@@ -1,7 +1,9 @@
-void	*memset(void *b, int c, size_t len)
+#include <stdlib.h>
+
+void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned char		*ptr;
-	const unsigned char	ch;
+	unsigned char	*ptr;
+	unsigned char	ch;
 
 	ptr = (unsigned char *)b;
 	ch = c;
