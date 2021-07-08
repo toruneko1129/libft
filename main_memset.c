@@ -5,8 +5,8 @@
 
 int	main(int argc, char **argv)
 {
-	char	*buf = NULL;
-	char	*ft_buf = NULL;
+	char	*buf;
+	char	*ft_buf;
 	int		c;
 	size_t	len;
 
@@ -21,5 +21,7 @@ int	main(int argc, char **argv)
 	ft_memset(ft_buf, c, len);
 	printf("lib:%s\n", buf);
 	printf("ft_:%s\n", ft_buf);
+	free(buf);
+	free(ft_buf);
 	return (0);
 }
