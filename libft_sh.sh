@@ -6,7 +6,7 @@ if [ $# -ne 1 ]; then
 	exit 1
 fi
 
-if [ $1 = Makefile ]; then
+if [ $1 = make ]; then
 	make
 	make clean
 	nm libft.a
@@ -24,7 +24,91 @@ if [ $1 = isalpha ]; then
 	./a.out 97
 	./a.out 100
 	./a.out 122
+	./a.out 48
+	./a.out 52
+	./a.out 57
 	./a.out 0
+	./a.out 127
+	./a.out 32
+	./a.out 126
+	./a.out 312
+	./a.out -45
+	./a.out -452
+	./a.out 2147483647
+	./a.out -2147483648
+	echo "Test finished"
+	exit 0
+fi
+
+if [ $1 = isdigit ]; then
+	gcc -c test_$1.c
+	gcc test_$1.o libft.a
+	rm test_$1.o
+	./a.out 65
+	./a.out 70
+	./a.out 90
+	./a.out 97
+	./a.out 100
+	./a.out 122
+	./a.out 48
+	./a.out 52
+	./a.out 57
+	./a.out 0
+	./a.out 127
+	./a.out 32
+	./a.out 126
+	./a.out 312
+	./a.out -45
+	./a.out -452
+	./a.out 2147483647
+	./a.out -2147483648
+	echo "Test finished"
+	exit 0
+fi
+
+if [ $1 = isalnum ]; then
+	gcc -c test_$1.c
+	gcc test_$1.o libft.a
+	rm test_$1.o
+	./a.out 65
+	./a.out 70
+	./a.out 90
+	./a.out 97
+	./a.out 100
+	./a.out 122
+	./a.out 48
+	./a.out 52
+	./a.out 57
+	./a.out 0
+	./a.out 127
+	./a.out 32
+	./a.out 126
+	./a.out 312
+	./a.out -45
+	./a.out -452
+	./a.out 2147483647
+	./a.out -2147483648
+	echo "Test finished"
+	exit 0
+fi
+
+if [ $1 = isascii ]; then
+	gcc -c test_$1.c
+	gcc test_$1.o libft.a
+	rm test_$1.o
+	./a.out 65
+	./a.out 70
+	./a.out 90
+	./a.out 97
+	./a.out 100
+	./a.out 122
+	./a.out 48
+	./a.out 52
+	./a.out 57
+	./a.out 0
+	./a.out 127
+	./a.out 32
+	./a.out 126
 	./a.out 312
 	./a.out -45
 	./a.out -452
