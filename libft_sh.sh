@@ -161,6 +161,34 @@ if [ $1 = memset ]; then
 	gcc -c test_$1.c
 	gcc test_$1.o libft.a
 	rm test_$1.o
+	./a.out 0123456789 42 5
+	./a.out 0123456789 0 11
+	./a.out 0123456789 34 0
+	./a.out 0123456789 -23 4
+	./a.out 0123456789 34626 8
+	./a.out 0123456789 -235252 6
+	./a.out 0123456789 2147483647 3
+	./a.out 0123456789 -2147483648 3
+	./a.out "" 4 1
+	./a.out abcdef 45 2
+	echo "Test finished"
+	exit 0
+fi
+
+if [ $1 = bzero ]; then
+	gcc -c test_$1.c
+	gcc test_$1.o libft.a
+	rm test_$1.o
+	./a.out 0123456789 5
+	./a.out 0123456789 11
+	./a.out 0123456789 0
+	./a.out 0123456789 4
+	./a.out 0123456789 8
+	./a.out 0123456789 6
+	./a.out 0123456789 3
+	./a.out 0123456789 3
+	./a.out "" 1
+	./a.out abcdef 2
 	echo "Test finished"
 	exit 0
 fi

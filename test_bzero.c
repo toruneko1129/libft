@@ -9,23 +9,20 @@ void	print_string(char *b, int size)
 		printf(" %x", *b++);
 }
 
-void	print_input(char *b, int size, int c, size_t len)
+void	print_input(char *b, int size, size_t len)
 {
 	printf("KO\nTestcase:\nb:");
 	print_string(b, size);
-	printf("\nc: %d\n", c);
 	printf("len: %lu\n", len);
 }
 
-void	print_output(char *b, char *ft_b, char *s1, char *s2, int size)
+void	print_output(char *b, char *ft_b, int size)
 {
-	printf("Expected:\nOutput:");
-	print_string(s1, size);
-	printf("\nb:");
+	printf("Expected:\n");
+	printf("b:");
 	print_string(b, size);
-	printf("\nfound:\nOutput:");
-	print_string(s2, size);
-	printf("\nb:");
+	printf("\nfound:\n");
+	printf("b:");
 	print_string(ft_b, size);
 	printf("\n");
 }
@@ -34,25 +31,21 @@ int	main(int argc, char **argv)
 {
 	char	*b;
 	char	*ft_b;
-	int		c;
 	size_t	len;
 	int		size;
-	char	*s1;
-	char	*s2;
 
 	size = strlen(argv[1]);
 	b = (char *)malloc((size + 1) * sizeof(char));
 	ft_b = (char *)malloc((size + 1) * sizeof(char));
 	strlcpy(b, argv[1], size + 1);
 	strlcpy(ft_b, argv[1], size + 1);
-	c = atoi(argv[2]);
-	len = atoi(argv[3]);
-	s1 = memset(b, c, len);
-	s2 = ft_memset(ft_b, c, len);
-	if (strcmp(s1, s2) || strcmp(b, ft_b))
+	len = atoi(argv[2]);
+	bzero(b, len);
+	bzero(ft_b, len);
+	if (strcmp(b, ft_b))
 	{
-		print_input(argv[1], size, c, len);
-		print_output(b, ft_b, s1, s2, size);
+		print_input(argv[1], size, len);
+		print_output(b, ft_b, size);
 	}
 	free(b);
 	free(ft_b);

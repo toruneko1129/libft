@@ -1,10 +1,6 @@
-#include <stddef.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*ptr;
-
-	ptr = (unsigned char *)s;
-	while (n--)
-		*ptr++ = (unsigned char)0;
+	ft_memset(s, 0, n);
 }
