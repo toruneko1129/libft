@@ -10,7 +10,8 @@ if [ $1 = Makefile ]; then
 	make
 	make clean
 	nm libft.a
-	Norminette *.c *.h
+	Norminette *.c libft.h
+	exit 0
 fi
 
 if [ $1 = isalpha ]; then
@@ -30,4 +31,5 @@ if [ $1 = isalpha ]; then
 	./a.out 2147483647
 	./a.out -2147483648
 	echo "Test finished"
+	exit 0
 fi

@@ -12,7 +12,7 @@ size_t	ft_strlcpy(char *restrict dst, const char *restrict src, size_t size)
 	}
 	if (size)
 		*dst = '\0';
-	while (*src++)
+	while (*src++ != '\0')
 		++len;
 	return (len - 1);
 }
