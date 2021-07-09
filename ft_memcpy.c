@@ -1,13 +1,13 @@
-#include <stddef.h>
+#include "libft.h"
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned char	*restrict dstptr;
-	unsigned char	*restrict srcptr;
+	unsigned char	*dstptr;
+	unsigned char	*srcptr;
 
-	dstptr = (unsigned char *restrict)dst;
-	srcptr = (unsigned char *restrict)src;
+	dstptr = (unsigned char *)dst;
+	srcptr = (unsigned char *)src;
 	while (n--)
-		*dstptr++ = (unsigned char)(*srcptr++);
+		*dstptr++ = *srcptr++;
 	return (dst);
 }
