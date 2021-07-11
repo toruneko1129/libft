@@ -1,16 +1,16 @@
 #include <stddef.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	len;
 
 	len = 1;
-	while (len < size)
+	while (*src && len < dstsize)
 	{
 		*dst++ = *src++;
 		++len;
 	}
-	if (size)
+	if (dstsize)
 		*dst = '\0';
 	while (*src++ != '\0')
 		++len;
