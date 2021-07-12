@@ -4,7 +4,7 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ptr;
 
-	ptr = malloc(count * size);
+	ptr = malloc(count * size * sizeof(char));
 	if (ptr == NULL)
 		return (NULL);
 	ft_bzero(ptr, count * size);
