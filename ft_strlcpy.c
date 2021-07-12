@@ -2,21 +2,15 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	len;
+	size_t	srcsize;
 
-	/*
-	if (dst == NULL || src == NULL)
-		return (0);
-	*/
-	len = 1;
-	while (*src && len < dstsize)
+	srcsize = ft_strlen(src);
+	if (srcsize < dstsize)
+		ft_memcpy(dst, src, srcsize + 1);
+	else if (dstsize)
 	{
-		*dst++ = *src++;
-		++len;
+		ft_memcpy(dst, src, dstsize - 1);
+		dst[dstsize - 1] = '\0';
 	}
-	if (dstsize)
-		*dst = '\0';
-	while (*src++ != '\0')
-		++len;
-	return (len - 1);
+	return (srcsize);
 }
