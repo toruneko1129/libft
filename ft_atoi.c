@@ -2,7 +2,7 @@
 
 int	ft_atoi(const char *str)
 {
-	long	res;
+	int		res;
 	int		sign;
 
 	res = 0;
@@ -16,7 +16,6 @@ int	ft_atoi(const char *str)
 		++str;
 	}
 	while (ft_isdigit(*str))
-		res = res * 10 + *(str++) - '0';
-	res *= sign;
+		res = res * 10 + sign * (*(str++) - '0');
 	return (res);
 }
