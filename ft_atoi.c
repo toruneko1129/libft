@@ -1,10 +1,10 @@
 #include "libft.h"
 
-int ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	unsigned long   res;
+	unsigned long	res;
 	int				neg;
-	unsigned long   off;
+	unsigned long	off;
 	int				lim;
 
 	res = 0;
@@ -21,9 +21,10 @@ int ft_atoi(const char *str)
 	lim = off % 10;
 	off /= 10;
 	while (ft_isdigit(*str) && (res < off || (res == off && *str - '0' <= lim)))
-	res = res * 10 + *(str++) - '0';
+		res = res * 10 + *(str++) - '0';
 	if (ft_isdigit(*str))
 		return (neg - 1);
 	if (neg)
 		res = -res;
 	return ((int)res);
+}
