@@ -1,45 +1,46 @@
 #include "libft.h"
 
-static void	ft_init(int n, int *len, int *sign, char *a)
+static void	ft_init(int n, int *len, int *sign)
 {
-	*len = 0;
-	if (n == 0)
-	{
-		*len = 1;
-		a[0] = '0';
-	}
 	*sign = 1;
 	if (n < 0)
 		*sign = -1;
+	*len = 0;
+	if (n <= 0)
+		*len = 1;
+	while (n)
+	{
+		++(*len);
+		n /= 10;
+	}
 }
 
-static void	ft_reverse(char *b, char *a, int len)
+static int	ft_pow10(int n)
 {
-	int		i;
+	int		res;
 
-	i = -1;
-	while (++i < len)
-	{
-		b[i] = a[len - 1 - i];
-	}
-	b[len] = '\0';
+	res = 1;
+	while (n--)
+		res *= 10;
+	return (res);
 }
 
 void	ft_putnbr_fd(int n, int fd)
 {
 	int		len;
 	int		sign;
-	char	a[12];
-	char	b[12];
+	char	c;
 
-	ft_init(n, &len, &sign, a);
-	while (n)
+	ft_init(n, &len, &sign);
+	if (n < 0)
 	{
-		a[len++] = '0' + n % 10 * sign;
-		n /= 10;
+		ft_putchar_fd('-', fd);
+		--len;
 	}
-	if (sign == -1)
-		a[len++] = '-';
-	ft_reverse(b, a, len);
-	ft_putstr_fd(b, fd);
+	while (len--)
+	{
+		c = '0' + n / ft_pow10(len) * sign;
+		ft_putchar_fd(c, fd);
+		n %= ft_pow10(len);
+	}
 }
