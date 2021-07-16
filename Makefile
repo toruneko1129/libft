@@ -13,12 +13,13 @@ CFLAG	:= -Wall -Wextra -Werror
 $(NAME): $(OBJS)
 	ar rc $@ $^
 
-all:	bonus
+all:	$(NAME)
 
 clean:
-	rm -f $(BNOBJS)
+	rm -f $(OBJS)
 
 fclean:	clean
+		rm -f $(BNOBJS)
 		rm -f $(NAME)
 
 re:		fclean $(NAME)
