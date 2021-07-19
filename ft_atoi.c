@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/19 16:56:04 by hkawakit          #+#    #+#             */
+/*   Updated: 2021/07/19 16:58:45 by hkawakit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_atoi(const char *str)
@@ -9,9 +21,9 @@ int	ft_atoi(const char *str)
 
 	res = 0;
 	neg = 0;
-	while ((9 <= *str && *str <= 13) || *str == 32)
+	while (ft_strchr("\f\n\r\t\v ", *str))
 		++str;
-	if (*str == '-' || *str == '+')
+	if (ft_strchr("+-", *str))
 	{
 		if (*str == '-')
 			neg = 1;
