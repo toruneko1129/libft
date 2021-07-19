@@ -65,6 +65,6 @@ fclean:	clean
 re:		fclean $(NAME)
 
 bonus:	$(BNOBJS)
-	ar rc $(NAME) $^
+	ar ra $(NAME) $^
 
 .PHONY: all clean fclean re bonus
