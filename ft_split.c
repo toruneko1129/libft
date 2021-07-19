@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/19 18:05:55 by hkawakit          #+#    #+#             */
+/*   Updated: 2021/07/19 18:16:28 by hkawakit         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static int	ft_getsize(char const *ptr, char c)
+static size_t	ft_getsize(char const *ptr, char c)
 {
-	int		size;
+	size_t	size;
 
 	size = 0;
 	while (*ptr)
@@ -56,6 +68,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	}
 	status = ft_getstrarr(ptr, c, &res);
+	free(ptr);
 	if (~status)
 	{
 		while (status--)
@@ -63,6 +76,5 @@ char	**ft_split(char const *s, char c)
 		free(res);
 		return (NULL);
 	}
-	free(ptr);
 	return (res);
 }
