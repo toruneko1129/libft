@@ -34,8 +34,7 @@ SRCS	=	ft_isalpha.c \
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c
 OBJS	=	$(SRCS:.c=.o)
-BNSRCS	=	$(SRCS)
-BNSRCS	+=	ft_lstnew_bonus.c \
+BNSRCS	=	ft_lstnew_bonus.c \
 			ft_lstadd_front_bonus.c \
 			ft_lstsize_bonus.c \
 			ft_lstlast_bonus.c \
@@ -45,11 +44,14 @@ BNSRCS	+=	ft_lstnew_bonus.c \
 			ft_lstiter_bonus.c \
 			ft_lstmap_bonus.c
 BNOBJS	=	$(BNSRCS:.c=.o)
+ifdef WITH_BONUS
+OBJS	+=	$(BNOBJS)
+endif
 CC		=	gcc
 CFLAG	=	-Wall -Wextra -Werror
 
 %.o: %.c
-	$(CC) $(CFLAG) -c $<
+		$(CC) $(CFLAG) -c $<
 
 $(NAME): $(OBJS)
 	ar rc $@ $^
@@ -57,14 +59,14 @@ $(NAME): $(OBJS)
 all:	$(NAME)
 
 clean:
-	rm -f $(BNOBJS)
+	rm -f $(OBJS) $(BNOBJS)
 
 fclean:	clean
 		rm -f $(NAME)
 
 re:		fclean $(NAME)
 
-bonus:	$(BNOBJS)
-	ar ra $(NAME) $^
+bonus:	
+	make WITH_BONUS=1
 
 .PHONY: all clean fclean re bonus
