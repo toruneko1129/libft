@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:05:55 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/07/21 14:50:56 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/07/21 15:37:08 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static size_t	ft_getsize(char const *s, char c)
 
 static int	ft_getstrarr(char const *s, char c, char **res)
 {
-	int		i;
+	size_t	i;
 	size_t	len;
 
 	i = 0;
