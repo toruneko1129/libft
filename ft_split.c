@@ -6,69 +6,66 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:05:55 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/07/20 00:48:17 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/07/21 14:50:56 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_getsize(char const *ptr, char c)
+static size_t	ft_getsize(char const *s, char c)
 {
 	size_t	size;
 
 	size = 0;
-	while (*ptr)
+	while (*s && *s == c)
+		++s;
+	while (*s)
 	{
 		++size;
-		while (*ptr && *ptr != c)
-			++ptr;
-		while (*ptr && *ptr == c)
-			++ptr;
+		while (*s && *s != c)
+			++s;
+		while (*s && *s == c)
+			++s;
 	}
 	return (size);
 }
 
-static int	ft_getstrarr(char const *ptr, char c, char ***res)
+static int	ft_getstrarr(char const *s, char c, char **res)
 {
 	int		i;
 	size_t	len;
 
 	i = 0;
-	while (*ptr)
+	while (*s && *s == c)
+		++s;
+	while (*s)
 	{
 		len = 0;
-		while (*(ptr + len) && *(ptr + len) != c)
+		while (*(s + len) && *(s + len) != c)
 			++len;
-		(*res)[i] = ft_substr(ptr, 0, len);
-		if ((*res)[i] == NULL)
+		res[i] = ft_substr(s, 0, len);
+		if (res[i] == NULL)
 			return (i);
 		++i;
-		ptr += len;
-		while (*ptr && *ptr == c)
-			++ptr;
+		s += len;
+		while (*s && *s == c)
+			++s;
 	}
-	(*res)[i] = NULL;
+	res[i] = NULL;
 	return (-1);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char		**res;
-	const char	set[2] = {c, '\0'};
-	char		*ptr;
 	int			status;
 
-	ptr = ft_strtrim(s, set);
-	if (ptr == NULL)
+	if (s == NULL)
 		return (NULL);
-	res = (char **)malloc((ft_getsize(ptr, c) + 1) * sizeof(char *));
+	res = (char **)malloc((ft_getsize(s, c) + 1) * sizeof(char *));
 	if (res == NULL)
-	{
-		free(ptr);
 		return (NULL);
-	}
-	status = ft_getstrarr(ptr, c, &res);
-	free(ptr);
+	status = ft_getstrarr(s, c, res);
 	if (status >= 0)
 	{
 		while (status--)
