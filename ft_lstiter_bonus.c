@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 19:53:23 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/07/19 19:53:57 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/07/22 02:12:52 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
+	if (f == NULL)
+		return ;
 	while (lst != NULL)
 	{
 		(*f)(lst->content);

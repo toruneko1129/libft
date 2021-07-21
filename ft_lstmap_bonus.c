@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 19:56:29 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/07/19 19:57:21 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/07/22 02:21:48 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*res;
 	t_list	*nxt;
 
+	if (f == NULL)
+		return (NULL);
 	res = NULL;
 	while (lst != NULL)
 	{
