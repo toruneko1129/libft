@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 17:22:00 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/07/19 17:25:48 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/07/21 14:14:19 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,15 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*ptr;
+	size_t	size;
 
-	if (ft_strlen(s) < start)
-		start = (unsigned int)ft_strlen(s);
-	if (ft_strlen(s) < len + (size_t)start)
-		len = ft_strlen(s) - start;
+	if (s == NULL)
+		return (NULL);
+	size = ft_strlen(s);
+	if (size < start)
+		start = (unsigned int)size;
+	if (size < len + start)
+		len = size - start;
 	ptr = (char *)ft_calloc(len + 1, sizeof(char));
 	if (ptr == NULL)
 		return (NULL);
