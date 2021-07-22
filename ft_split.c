@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:05:55 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/07/21 15:37:08 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/07/22 21:04:25 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static size_t	ft_getsize(char const *s, char c)
 	return (size);
 }
 
-static int	ft_getstrarr(char const *s, char c, char **res)
+static size_t	ft_getstrarr(char const *s, char c, char **res)
 {
 	size_t	i;
 	size_t	len;
@@ -57,8 +57,8 @@ static int	ft_getstrarr(char const *s, char c, char **res)
 
 char	**ft_split(char const *s, char c)
 {
-	char		**res;
-	int			status;
+	char	**res;
+	size_t	status;
 
 	if (s == NULL)
 		return (NULL);
@@ -66,7 +66,7 @@ char	**ft_split(char const *s, char c)
 	if (res == NULL)
 		return (NULL);
 	status = ft_getstrarr(s, c, res);
-	if (status >= 0)
+	if (status != (size_t)-1)
 	{
 		while (status--)
 			free(res[status]);
