@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 16:56:04 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/07/20 01:19:51 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/07/22 20:11:54 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	ft_atoi(const char *str)
 
 	res = 0;
 	neg = 0;
-	while (ft_strchr("\f\n\r\t\v ", *str))
+	while (ft_strchr("\f\n\r\t\v ", *str) != NULL)
 		++str;
-	if (ft_strchr("+-", *str))
+	if (ft_strchr("+-", *str) != NULL)
 	{
 		if (*str == '-')
 			neg = 1;
