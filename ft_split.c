@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:05:55 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/07/22 21:12:19 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/07/22 21:24:56 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static size_t	ft_getstrarr(char const *s, char c, char **res)
 			++s;
 	}
 	res[i] = NULL;
-	return (-1);
+	return ((size_t)(-1));
 }
 
 char	**ft_split(char const *s, char c)
