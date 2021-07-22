@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 18:05:55 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/07/22 21:04:25 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/07/22 21:12:19 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	**ft_split(char const *s, char c)
 	if (res == NULL)
 		return (NULL);
 	status = ft_getstrarr(s, c, res);
-	if (status != (size_t)-1)
+	if (status != (size_t)(-1))
 	{
 		while (status--)
 			free(res[status]);
