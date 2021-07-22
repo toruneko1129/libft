@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 15:46:09 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/07/19 15:46:10 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/07/22 19:30:03 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	else if (dstsize)
 	{
 		ft_memcpy(dst, src, dstsize - 1);
-		dst[dstsize - 1] = '\0';
+		*(dst + dstsize - 1) = '\0';
 	}
 	return (srcsize);
 }
