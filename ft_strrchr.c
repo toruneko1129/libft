@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 16:04:42 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/07/21 12:57:02 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/07/22 14:35:11 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@ char	*ft_strrchr(const char *s, int c)
 	len = ft_strlen(s);
 	if (!c)
 		return ((char *)s + len);
-	s += len;
 	while (len--)
 	{
-		if (*(--s) == (char)c)
-			return ((char *)s);
+		if (*(s + len) == (char)c)
+			return ((char *)(s + len));
 	}
 	return (NULL);
 }
