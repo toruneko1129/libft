@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 15:39:46 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/07/21 14:01:39 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/07/22 14:11:52 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	if (!len || dst == src)
 		return (dst);
 	dstptr = (unsigned char *)dst;
-	srcptr = (unsigned char *)src;
+	srcptr = (const unsigned char *)src;
 	if (dstptr < srcptr)
 	{
 		while (len--)
@@ -28,10 +28,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	else
 	{
-		dstptr += len;
-		srcptr += len;
 		while (len--)
-			*(--dstptr) = *(--srcptr);
+			*(dstptr + len) = *(srcptr + len);
 	}
 	return (dst);
 }
