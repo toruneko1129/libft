@@ -6,7 +6,7 @@
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/19 15:44:35 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/07/24 14:26:13 by hkawakit         ###   ########.fr       */
+/*   Updated: 2021/08/02 17:14:22 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-# define MAX_SIZE 1000000
+# define MAX_PUT_SIZE 1000000
 
 typedef struct s_list
 {
