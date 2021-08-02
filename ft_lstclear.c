@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkawakit <hkawakit@student.42tokyo.j>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/19 19:04:20 by hkawakit          #+#    #+#             */
-/*   Updated: 2021/07/21 16:14:10 by hkawakit         ###   ########.fr       */
+/*   Created: 2021/07/19 19:47:08 by hkawakit          #+#    #+#             */
+/*   Updated: 2021/08/02 22:55:35 by hkawakit         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
+	t_list	*front;
+
 	if (lst == NULL)
-		return (NULL);
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
+		return ;
+	front = *lst;
+	while (front != NULL)
+	{
+		*lst = front->next;
+		ft_lstdelone(front, del);
+		front = *lst;
+	}
 }
